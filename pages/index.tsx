@@ -122,11 +122,11 @@ const Home: NextPage = () => {
             <h1 className="text-4xl text-center text-gray-700 md:text-left">Introduction to Healthcare</h1>
             <h1 className="text-lg text-gray-600 text-center mt-5 md:text-left">
               Here is a short video explaining and introducing you to healthcare
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+              &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;
             </h1>
           </div>
         </div>
@@ -145,7 +145,7 @@ const Home: NextPage = () => {
                 <h1 className="text-3xl text-black text-center md:text-left">Our Mission</h1>
                 <h1 className="text-lg text-gray-500 text-center mt-5 md:text-left">
                   Here is a short video explaining and introducing you to healthcare
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                  &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                   sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                 </h1>
               </button>
@@ -154,7 +154,7 @@ const Home: NextPage = () => {
                 <h1 className="text-3xl text-black text-center md:text-left">Who we are</h1>
                 <h1 className="text-lg text-gray-500 text-center mt-5 md:text-left">
                   Here is a short video explaining and introducing you to healthcare
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                  &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                   sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                 </h1>
               </button>
@@ -163,7 +163,7 @@ const Home: NextPage = () => {
                 <h1 className="text-3xl text-white bold text-center md:text-left">Our Goal</h1>
                 <h1 className="text-lg text-white bold text-center mt-5 md:text-left">
                   Here is a short video explaining and introducing you to healthcare
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                  &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                   sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                 </h1>
               </button>

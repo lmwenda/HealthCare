@@ -18,21 +18,21 @@ const index = () => {
               A Customer Service Representative works with clients who have complaints,
               orders, or require information about products/services purchased from the organization.
               They also provide solutions that fit those individualized situations and prioritize the 
-              customers' needs at each step of the process.
+              customers needs at each step of the process.
             </h1>
 
             <h1 className="text-gray-500 text-lg">
               I recently discovered I could make fudge with just chocolate chips, sweetened condensed milk,
               vanilla extract, and a thick pot on slow heat.
               I tried it with dark chocolate chunks and I tried it with semi-sweet chocolate chips. 
-              It's better with both kinds. 
+              It&apos;s better with both kinds. 
             </h1>
 
             <a className="text-blue-500 underline" href="https://discord.gg/">Visit our Discord for help!</a>
 
             <Link href="/login">
               <a className="text-blue-500 underline">
-                Haven't Joined HealthCare yet? Join us!
+                Haven&apos;t Joined HealthCare yet? Join us!
               </a>
             </Link>
 
