@@ -17,11 +17,11 @@ const PricingCard: NextComponentType = () => {
                   </p>
                   <p className="mt-6 text-gray-500">The Essientials everyone needs</p>
                   <ul role="list" className="pt-6 mt-6 space-y-6 border-t">
-                    <span className="text-lg font-semibold text-neutral-600">What's included?</span>
+                    <span className="text-lg font-semibold text-neutral-600">What&apos;s included?</span>
                     <li className="flex">
                       <div className="inline-flex items-center w-6 h-6 bg-blue-600 rounded-xl">
                         <svg className="flex-shrink-0 w-4 h-4 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                       <span className="ml-3 text-neutral-600">Compare Progression</span>
@@ -29,7 +29,7 @@ const PricingCard: NextComponentType = () => {
                     <li className="flex">
                       <div className="inline-flex items-center w-6 h-6 bg-blue-600 rounded-xl">
                         <svg className="flex-shrink-0 w-4 h-4 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                       <span className="ml-3 text-neutral-600">Fun Healthy Games</span>
@@ -37,7 +37,7 @@ const PricingCard: NextComponentType = () => {
                     <li className="flex">
                       <div className="inline-flex items-center w-6 h-6 bg-blue-600 rounded-xl">
                         <svg className="flex-shrink-0 w-4 h-4 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                       <span className="ml-3 text-neutral-600">Professional Videos</span>
@@ -45,7 +45,7 @@ const PricingCard: NextComponentType = () => {
                     <li className="flex">
                       <div className="inline-flex items-center w-6 h-6 bg-blue-600 rounded-xl">
                         <svg className="flex-shrink-0 w-4 h-4 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                       <span className="ml-3 text-neutral-600">Community Interaction</span>
@@ -53,7 +53,7 @@ const PricingCard: NextComponentType = () => {
                     <li className="flex">
                       <div className="inline-flex items-center w-6 h-6 bg-blue-600 rounded-xl">
                         <svg className="flex-shrink-0 w-4 h-4 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                       <span className="ml-3 text-neutral-600">Dark Mode</span>
@@ -71,13 +71,13 @@ const PricingCard: NextComponentType = () => {
                     <span className="text-5xl font-extrabold tracking-tight">£9.99</span>
                     <span className="ml-1 text-xl font-semibold">/month</span>
                   </p>
-                  <p className="mt-6 text-white text-solitud">Become more than just "Healthy"</p>
+                  <p className="mt-6 text-white text-solitud">Become more than just &quot;Healthy&quot;</p>
                   <ul role="list" className="pt-6 mt-6 space-y-6 border-t">
-                    <span className="text-lg font-semibold text-white">What's included?</span>
+                    <span className="text-lg font-semibold text-white">What&apos;s included?</span>
                     <li className="flex">
                       <div className="inline-flex items-center w-6 h-6 bg-white rounded-xl">
                         <svg className="flex-shrink-0 w-4 h-4 mx-auto text-neutral-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                       <span className="ml-3 text-white">Unlimited Videos</span>
@@ -85,7 +85,7 @@ const PricingCard: NextComponentType = () => {
                     <li className="flex">
                       <div className="inline-flex items-center w-6 h-6 bg-white rounded-xl">
                         <svg className="flex-shrink-0 w-4 h-4 mx-auto text-neutral-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                       <span className="ml-3 text-white">Offline Mode</span>
@@ -93,7 +93,7 @@ const PricingCard: NextComponentType = () => {
                     <li className="flex">
                       <div className="inline-flex items-center w-6 h-6 bg-white rounded-xl">
                         <svg className="flex-shrink-0 w-4 h-4 mx-auto text-neutral-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                       <span className="ml-3 text-white">Messaging and Call</span>
@@ -102,7 +102,7 @@ const PricingCard: NextComponentType = () => {
                     <li className="flex">
                       <div className="inline-flex items-center w-6 h-6 bg-white rounded-xl">
                         <svg className="flex-shrink-0 w-4 h-4 mx-auto text-neutral-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                       <span className="ml-3 text-white">Competition Mode</span>
@@ -111,7 +111,7 @@ const PricingCard: NextComponentType = () => {
                     <li className="flex">
                       <div className="inline-flex items-center w-6 h-6 bg-white rounded-xl">
                         <svg className="flex-shrink-0 w-4 h-4 mx-auto text-neutral-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                       <span className="ml-3 text-white">Includes Membership</span>
@@ -119,7 +119,7 @@ const PricingCard: NextComponentType = () => {
                     <li className="flex">
                       <div className="inline-flex items-center w-6 h-6 bg-white rounded-xl">
                         <svg className="flex-shrink-0 w-4 h-4 mx-auto text-neutral-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                       <span className="ml-3 text-white">View your progression</span>

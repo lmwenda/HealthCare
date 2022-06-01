@@ -6,7 +6,8 @@ import image from '../public/landing_page_image_1.svg';
 import Typewriter, { TypewriterClass } from 'typewriter-effect';
 import Link from 'next/link';
 import FadeInSection from '../components/FadeInSection';
-import ReactPlayer from 'react-player';
+import dynamic from 'next/dynamic'
+const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 const Home: NextPage = () => {
   return (
