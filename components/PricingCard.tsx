@@ -127,9 +127,9 @@ const PricingCard: NextComponentType = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="z-50 mt-6 rounded-lg">
+                <div className="z-50 mt-6 rounded-lg bg-white">
                   <Link href="/login">
-                    <a href="#" type="highlight" className="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 bg-white"> Get started</a>
+                    <div className="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 bg-white cursor-pointer"> Get started</div>
                   </Link>
                 </div>
               </div>
