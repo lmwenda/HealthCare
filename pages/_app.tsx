@@ -4,8 +4,17 @@ import { Header } from '../components/Header'
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
 import Head from 'next/head';
+import { auth } from '../firebase';
+import Sidebar from '../components/Sidebar';
+import { useState, useEffect } from 'react';
 
 function MyApp({ Component, pageProps, router }: AppProps) {
+  const [ token, setToken ] = useState<any>(null);
+
+  useEffect(() => {
+    const _token: any = localStorage.getItem("token");
+    setToken(JSON.parse(_token));
+  }, [])
   return (
     <motion.div key={router.route} initial="pageInitial" animate="pageAnimate" variants={{
         pageInitial: {
@@ -19,9 +28,21 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         <Head>
           <title>Healthcare</title>
         </Head>
-        <Header />  
-        <Component {...pageProps} />
-        <Footer />
+        {
+          token !== null ? (
+          <div className="flex flex-row">
+            <Sidebar /> 
+            <Component {...pageProps} />
+          </div>
+          ) :(
+            <div>
+              <Header />  
+              <Component />
+            </div>
+          )
+            
+        }
+        { token !== null ? null : <Footer /> }
     </motion.div>
   );
 }

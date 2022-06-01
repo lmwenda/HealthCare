@@ -19,7 +19,9 @@ const Login = () => {
     
     if(user){
       localStorage.setItem("token", JSON.stringify(await getIdToken(user.user)));
-      Router.push("/");
+      Router.push(`/client/${auth.currentUser?.uid}`);
+      await new Promise(resolve => setTimeout(resolve, 100))
+      Router.reload();
     }
     if(!user) return setMessage("Incorrect Email or Password");
   }

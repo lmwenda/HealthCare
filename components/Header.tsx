@@ -59,11 +59,6 @@ export const Header: NextComponentType = () => {
                 Home
               </a>
             </Link>
-            <Link href='/blogs'>
-              <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-black items-center justify-center hover:text-blue-500'>
-                Blog
-              </a>
-            </Link>
             <Link href='/pricing'>
               <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-black items-center justify-center hover:text-blue-500'>
                Pricing
@@ -76,32 +71,17 @@ export const Header: NextComponentType = () => {
               </a>
             </Link>
 
-            {
-              token ? (
-                <Link href={`/settings/${auth.currentUser?.uid}`}>
-                  <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-blue-500 items-center justify-center'>
-                    Welcome Back { auth.currentUser?.email }
-                  </a>
-                </Link>
-              ) : (
-                <div className="flex flex-col md:flex-row">
+            <Link href='/login'>
+              <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-blue-500 items-center justify-center'>
+                Get Started
+              </a>
+            </Link>
 
-                  <Link href='/login'>
-                    <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-blue-500 items-center justify-center'>
-                      Get Started
-                    </a>
-                  </Link>
-
-                  <Link href='/register'>
-                    <a className='lg:inline-flex lg:w-auto w-full text-center px-3 py-2 bg-blue-500 rounded text-white items-center justify-center'>
-                      Become a Member
-                    </a>
-                  </Link>
-
-                </div>
-              )
-
-            }
+            <Link href='/register'>
+              <a className='lg:inline-flex lg:w-auto w-full text-center px-3 py-2 bg-blue-500 rounded text-white items-center justify-center'>
+                Become a Member
+              </a>
+            </Link>
 
           </div>
         </motion.div>

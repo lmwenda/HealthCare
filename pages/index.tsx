@@ -4,10 +4,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import image from '../public/landing_page_image_1.svg';
 import Typewriter, { TypewriterClass } from 'typewriter-effect';
+import image2 from "../public/3792558.jpg";
 import Link from 'next/link';
 import FadeInSection from '../components/FadeInSection';
 import dynamic from 'next/dynamic'
-const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
+import introduction from "../public/people-connecting-jigsaw-pieces-head-together_53876-59847.webp";
+import introduction2 from "../public/415.jpg";
+import Blog from '../components/LandingBlogs';
+// const ReactPlayer = dynamic(() => import("react-player"), { ssr: false }); - not used anymore
 
 const Home: NextPage = () => {
   return (
@@ -105,11 +109,18 @@ const Home: NextPage = () => {
       </FadeInSection>
 
       <FadeInSection>
-        <div className="relative container mt-44 flex flex-col items-center mx-auto space-y-10 justify-center md:space-x-14 md:flex-row">
-          <ReactPlayer url="https://www.youtube.com/watch?v=jh5U5BnpGN8" controls={true} />
+        <div className="relative container mt-44 flex flex-col px-6 items-center mx-auto space-y-10 justify-center md:space-x-14 md:flex-row">
+          <div className="flex-1 space-x-5">
+            <div className="flex md:hidden">
+              <Image className='absolute z-50 rounded-full sm:w-auto md:w-9/12' src={introduction2} height={0} width={0} />
+            </div>
+            <div className="hidden md:flex">
+              <Image className='absolute z-50 rounded-full sm:w-auto md:w-9/12' src={introduction} height={0} width={0} />
+            </div>
+          </div>
           <div className="flex-1">
             <h1 className="text-4xl text-center text-gray-700 md:text-left">Introduction to Healthcare</h1>
-            <h1 className="text-lg text-gray-600 mt-5">
+            <h1 className="text-lg text-gray-600 text-center mt-5 md:text-left">
               Here is a short video explaining and introducing you to healthcare
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -118,6 +129,57 @@ const Home: NextPage = () => {
               Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             </h1>
           </div>
+        </div>
+      </FadeInSection>
+
+      <FadeInSection>
+        <div className="relative container mt-56 flex flex-col px-6 items-center mx-auto space-y-10 justify-center md:space-x-14 md:flex-row-reverse">
+            <div className="flex-1">
+              <Image 
+              className='absolute rounded h-full zIndex-50 sm:w-auto md:w-9/12'
+              src={image2} alt='' />
+            </div>
+            
+            <div className="flex-1 flex flex-col space-y-5">
+              <button className="p-5">
+                <h1 className="text-3xl text-black text-center md:text-left">Our Mission</h1>
+                <h1 className="text-lg text-gray-500 text-center mt-5 md:text-left">
+                  Here is a short video explaining and introducing you to healthcare
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                </h1>
+              </button>
+
+              <button className="p-5">
+                <h1 className="text-3xl text-black text-center md:text-left">Who we are</h1>
+                <h1 className="text-lg text-gray-500 text-center mt-5 md:text-left">
+                  Here is a short video explaining and introducing you to healthcare
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                </h1>
+              </button>
+
+              <button className="p-5 bg-blue-500 rounded">
+                <h1 className="text-3xl text-white bold text-center md:text-left">Our Goal</h1>
+                <h1 className="text-lg text-white bold text-center mt-5 md:text-left">
+                  Here is a short video explaining and introducing you to healthcare
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                </h1>
+              </button>
+
+            </div>
+        </div>
+      </FadeInSection>
+
+      <FadeInSection>
+        <div className="relative container mt-56 flex flex-col px-6 items-center mx-auto space-y-10 justify-center md:space-x-14">
+            <h1 className="flex-1 text-center text-4xl md:text-left">Follow the Lastest Guides and News</h1>
+            
+            <div className="flex-1 flex flex-row space-y-5">
+              <Blog />
+
+            </div>
         </div>
       </FadeInSection>
 
