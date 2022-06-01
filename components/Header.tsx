@@ -16,7 +16,7 @@ export const Header: NextComponentType = () => {
   useEffect(() => {
     const _token: any = localStorage.getItem("token");
     setToken(JSON.parse(_token));
-  })
+  }, [])
 
   return (
     <>

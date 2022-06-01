@@ -1,8 +1,9 @@
+import { NextPage } from 'next';
 import Link from 'next/link';
 import React from 'react'
 import { auth } from '../../firebase';
 
-const index = () => {
+const Index: NextPage = () => {
 
   React.useEffect(() => {
     auth.currentUser?.sendEmailVerification();
@@ -21,4 +22,4 @@ const index = () => {
   )
 }
 
-export default index;
+export default Index;

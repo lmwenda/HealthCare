@@ -1,19 +1,10 @@
 import Link from 'next/link';
 import Router from 'next/router';
-import React, { useState } from 'react'
+import React from 'react'
 import Avatar from '../../components/Avatar'
 import { auth } from '../../firebase'
 
 const index = () => {
-    
-    const [ displayName, setDisplayName ] = useState<string>("");
-
-    const onDisplayNameChange = (e: React.ChangeEvent<HTMLInputElement>) => setDisplayName(e.target.value);
-
-    const saveUserChanges = () => {
-        auth.currentUser?.updateProfile({ displayName });
-        Router.reload();
-    }
 
     const logout = () => {
         auth.signOut();
@@ -34,10 +25,10 @@ const index = () => {
             type="text" 
             className="p-3 mt-10 rounded border border-gray-400"
             placeholder={`Display Name: ${ auth.currentUser?.displayName ? auth.currentUser.displayName : "" }`} 
-            onChange={onDisplayNameChange} />
+            />
 
             <div className="flex flex-row mt-3 justify-left space-x-3">
-                <button onClick={saveUserChanges} className="p-3 rounded bg-blue-500 text-white">Save Changes</button>
+                <button className="p-3 rounded bg-blue-500 text-white">Save Changes</button>
                 <button onClick={logout} className="p-3 rounded bg-blue-500 text-white">Logout</button>
             </div>
 

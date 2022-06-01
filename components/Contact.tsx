@@ -7,7 +7,7 @@ const Contact = () => {
       <div className="relative flex flex-col">
           <h1 className="text-4xl text-left">Contact us</h1>
           <h1 className="text-lg text-gray-500 pt-3 text-left">
-            Confused? Got any questions? Don't worry you can just contact us with the form below!
+            Confused? Got any questions? Don&apos;t worry you can just contact us with the form below!
           </h1>
 
           <form className="flex flex-col space-y-5 mt-5">
