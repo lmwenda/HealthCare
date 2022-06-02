@@ -59,7 +59,7 @@ export const Header: NextComponentType = () => {
                 Home
               </a>
             </Link>
-            <Link href='/pricing'>
+            <Link href='/login'>
               <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-black items-center justify-center hover:text-blue-500'>
                Pricing
               </a>

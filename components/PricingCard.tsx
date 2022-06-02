@@ -15,6 +15,18 @@ const PricingCard: NextComponentType = () => {
     const data = await response.json();
     location.href = data;
   }
+
+  const sendPremiumShipPayment = async() => {
+    const response = await fetch("http://localhost:3000/api/payments/premiumship", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+
+    const data = await response.json();
+    location.href = data;
+  }
  
   return (
     <>
@@ -75,7 +87,10 @@ const PricingCard: NextComponentType = () => {
                   </ul>
                 </div>
                 <div className="mt-6 rounded-lg">
-                  <Link href="/login" type="highlight" className="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 bg-white"> Get Started </Link>
+                  <div onClick={sendMemberShipPayment} 
+                  className="hover:cursor-pointer w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 bg-white"> 
+                    Get Started 
+                  </div>
                 </div>
               </div>
               <div className="relative flex flex-col p-8 bg-blue-600 rounded-2xl">
@@ -141,7 +156,7 @@ const PricingCard: NextComponentType = () => {
                   </ul>
                 </div>
                 <div className="z-50 mt-6 rounded-lg bg-white">
-                  <div onClick={sendMemberShipPayment} className="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 bg-white cursor-pointer"> Get started</div>
+                  <div onClick={sendPremiumShipPayment} className="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 bg-white cursor-pointer"> Get started</div>
                 </div>
               </div>
             </div>

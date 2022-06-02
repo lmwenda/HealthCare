@@ -33,7 +33,7 @@ export default function handler( req: NextApiRequest, res: NextApiResponse<Data>
             } else {
                 console.log("Billing Agreement Execute Response");
                 console.log(JSON.stringify(billingAgreement));
-                res.json({ message: "Membership Plan successfully Create", payload: billingAgreement })
+                res.json({ message: "Subscription Plan Successfully Created", payload: billingAgreement })
             }
         });
     }else{

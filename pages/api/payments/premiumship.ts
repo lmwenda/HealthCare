@@ -19,7 +19,7 @@ export default function handler( req: NextApiRequest, res: NextApiResponse<Data>
         isoDate.toISOString().slice(0, 19) + 'Z';
 
         const billingPlanAttributes = {
-            "description": "Create Plan for Membership",
+            "description": "Create Plan for Premiumship",
             "merchant_preferences": {
                 "auto_bill_amount": "yes",
                 "cancel_url": "http://localhost:3000/api/payments/cancel",
@@ -36,62 +36,17 @@ export default function handler( req: NextApiRequest, res: NextApiResponse<Data>
                 {
                     "amount": {
                         "currency": "GBP",
-                        "value": "4.16"
+                        "value": "9.99"
                     },
                     "cycles": "0",
                     "frequency": "MONTH",
                     "frequency_interval": "1",
-                    "name": "Membership Plan",
+                    "name": "Premium Plan",
                     "type": "REGULAR"
                 },
             ],
             "type": "INFINITE"
         };
-
-        // const billingPlanAttributes = {
-        //     "intent": "sale",
-        //     "payer": {
-        //         "payment_method": "paypal"
-        //     },
-        //     "merchant_preferences": {
-        //         "auto_bill_amount": "yes",
-        //         "cancel_url": "http://www.cancel.com",
-        //         "initial_fail_amount_action": "continue",
-        //         "max_fail_attempts": "1",
-        //         "return_url": "http://www.success.com",
-        //         "setup_fee": {
-        //             "currency": "GBP",
-        //             "value": "4.16"
-        //         }
-        //     },
-        //     "cycles": "0",
-        //     "frequency": "MONTH",
-        //     "frequency_interval": "1",
-        //     "name": "Membership",
-        //     "type": "REGULAR",
-        //     "redirect_urls": {
-        //         "return_url": "http://localhost:3000/api/payments/success",
-        //         "cancel_url": "http://localhost:3000/api/payments/cancel"
-        //     },
-        //     "transactions": [{
-        //         "item_list": {
-        //             "items": [
-        //                 {
-        //                     "name": "Membership",
-        //                     "sku": "item",
-        //                     "price": "4.16",
-        //                     "currency": "GBP",
-        //                     "quantity": 1
-        //                 }
-        //             ]
-        //         },
-        //         "amount": {
-        //             "currency": "GBP",
-        //             "total": "4.16"
-        //         },
-        //         "description": "This is the payment description."
-        //     }]
-        // }
 
         const billingPlanUpdateAttributes = [
             {
@@ -104,11 +59,11 @@ export default function handler( req: NextApiRequest, res: NextApiResponse<Data>
         ];
 
         const billingAgreementAttributes = {
-            "name": "Healthcare Membership Agreement",
-            "description": "Agreement for Membership Plan",
+            "name": "Healthcare Premiumship Agreement",
+            "description": "Agreement for Premium Plan",
             "start_date": isoDate,
             "plan": {
-                "id": "P-0NJ10521L3680291SOAQIVTQ"
+                "id": "P-0NJ10521L368029FDSF1SOAQIVTQ"
             },
             "payer": {
                 "payment_method": "paypal"
@@ -123,22 +78,6 @@ export default function handler( req: NextApiRequest, res: NextApiResponse<Data>
             }
         };
     
-        // paypal.billingPlan.create(create_payment_json,  (error: any, payment: any) => {
-        //     if (error) {
-        //         throw error;
-        //     } else {
-        //         console.log("Create Payment Response");
-        //         console.log(payment);
-
-        //         for(let i = 0;i < payment.links?.length; i++){
-        //             if(payment.links[i].rel === 'approval_url'){
-        //                 res.status(200);
-        //                 res.json(payment.links[i].href);
-        //             }
-        //         }
-        //     }
-        // })
-        // Create the billing plan
         paypal.billingPlan.create(billingPlanAttributes, function (error: any, billingPlan: any) {
             if (error) {
                 console.log(error);

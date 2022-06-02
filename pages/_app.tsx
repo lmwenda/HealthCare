@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
 import Head from 'next/head';
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
-import { auth } from '../firebase';
 import Sidebar from '../components/Sidebar';
 import { useState, useEffect } from 'react';
 
@@ -31,8 +30,8 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         </Head>
         {
           token !== null ? (
-          <div className="flex flex-row">
-            <Sidebar /> 
+          <div className="flex flex-col md:flex-row">
+            <Sidebar />
             <Component {...pageProps} />
           </div>
           ) :(
