@@ -4,6 +4,7 @@ import { Header } from '../components/Header'
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
 import Head from 'next/head';
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { auth } from '../firebase';
 import Sidebar from '../components/Sidebar';
 import { useState, useEffect } from 'react';
