@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import paypal from "paypal-rest-sdk";
 import url from "url";
+import {BASE_URL} from '../../../utils/exportedDefinitions';
 
 paypal.configure({
     'mode': 'sandbox',
@@ -22,10 +23,10 @@ export default function handler( req: NextApiRequest, res: NextApiResponse<Data>
             "description": "Create Plan for Membership",
             "merchant_preferences": {
                 "auto_bill_amount": "yes",
-                "cancel_url": "http://localhost:3000/api/payments/cancel",
+                "cancel_url": `${BASE_URL}api/payments/cancel`,
                 "initial_fail_amount_action": "continue",
                 "max_fail_attempts": "1",
-                "return_url": "http://localhost:3000/api/payments/success",
+                "return_url": `${BASE_URL}payments/success`,
                 "setup_fee": {
                     "currency": "GBP",
                     "value": "0"
@@ -35,9 +36,9 @@ export default function handler( req: NextApiRequest, res: NextApiResponse<Data>
             "payment_definitions": [
                 {
                     "amount": {
-                        "currency": "GBP",
-                        "value": "4.16"
-                    },
+                        "currency": "GBP", 
+                        "value": "4.16" 
+                },
                     "cycles": "0",
                     "frequency": "MONTH",
                     "frequency_interval": "1",

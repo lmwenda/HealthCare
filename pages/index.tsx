@@ -1,17 +1,16 @@
-import type { NextPage } from 'next'
-import Image from 'next/image';
-import React from 'react';
-import { motion } from 'framer-motion';
+import type { NextPage } from 'next' 
+import Image from 'next/image'; 
+import React from 'react'; 
+import { motion } from 'framer-motion'; 
 import image from '../public/landing_page_image_1.svg';
 import Typewriter, { TypewriterClass } from 'typewriter-effect';
 import image2 from "../public/3792558.jpg";
 import Link from 'next/link';
 import FadeInSection from '../components/FadeInSection';
-import dynamic from 'next/dynamic'
 import introduction from "../public/people-connecting-jigsaw-pieces-head-together_53876-59847.webp";
 import introduction2 from "../public/415.jpg";
 import Blog from '../components/LandingBlogs';
-// const ReactPlayer = dynamic(() => import("react-player"), { ssr: false }); - not used anymore
+import withAuth from '../components/PrivateRoute';
 
 const Home: NextPage = () => {
   return (
@@ -187,4 +186,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default withAuth(Home, false);

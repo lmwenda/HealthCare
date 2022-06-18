@@ -1,21 +1,15 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import paypal from "paypal-rest-sdk";
-
-paypal.configure({
-    'mode': 'sandbox',
-    'client_id': 'AXzFDfX3tv5Fri3OPE_wrGSRMctH4ue0Dzy35AgC8u5Syid9305WQ9eQh_m9lhn9rXPLkRjwE7kpS8eA',
-    'client_secret': 'EJfOp3RVkQljblmX_ww9rxL8WiAvyEl5WT9S_kdEAJ6qAlmrlG_ziHPWQcssSwFdlMIvMV9aF_DLxg20',
-})
+import { PrismaClient } from '@prisma/client'; 
+import type { NextApiRequest, NextApiResponse } from 'next'; 
 
 type Data = {
   message: string,
-  payload: {}
+  order: {}
 }
 
-export default function handler( req: NextApiRequest, res: NextApiResponse<Data> ) {
-    if(req.method === "GET"){
-        const paymentToken: any = req.query.token;
+const prisma = new PrismaClient();
 
+export default async function handler( req: NextApiRequest, res: NextApiResponse<Data> ) {
+    if(req.method === "POST"){
         // paypal.payment.execute(paymentID, execute_payment_json, function (error: any, payment: any) {
         //     if (error) {
         //         console.log(error.response);
@@ -25,18 +19,61 @@ export default function handler( req: NextApiRequest, res: NextApiResponse<Data>
         //         res.send({ message: "Success" });
         //     }
         // });
+        
+        /*
+        model Orders {
+          orderId Int @default(autoincrement()) @id
+          transcationID Int @unique 
+          state String 
+          description String
+          start_date DateTime
+          payerID Int @unique
+          payer User @relation(fields: [payerID], references: [id])
+          autoRenewDate DateTime
+          currency String
+          amount Int
+          renew Boolean
+        }
+        */
 
-        paypal.billingAgreement.execute(paymentToken, {}, function (error: any, billingAgreement: any) {
-            if (error) {
-                console.log(error);
-                throw error;
-            } else {
-                console.log("Billing Agreement Execute Response");
-                console.log(JSON.stringify(billingAgreement));
-                res.json({ message: "Subscription Plan Successfully Created", payload: billingAgreement })
+        const { 
+          orderId, 
+          transcationID, 
+          state, 
+          description, 
+          start_date, 
+          email, 
+          first_name, 
+          last_name, 
+          payerID, 
+          autoRenewDate, 
+          currency, 
+          amount, 
+          renew 
+        } = req.body;
+
+        const order = await prisma.orders.create({
+            data:{
+              orderId,
+              transcationID,
+              state,
+              description,
+              start_date,
+              email,
+              first_name,
+              last_name,
+              payerID,
+              autoRenewDate,
+              currency,
+              amount,
+              renew
             }
-        });
+        })
+
+        console.log(order);
+
+        res.json({ message: "Saved Order to Database...", order: order })
     }else{
-        return "wrong method, method for this process is GET"
+        return "wrong method, method for this process is POST"
     }
 }

@@ -4,7 +4,7 @@ import { Header } from '../components/Header'
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
 import Head from 'next/head';
-import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+// import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import Sidebar from '../components/Sidebar';
 import { useState, useEffect } from 'react';
 
@@ -12,8 +12,8 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   const [ token, setToken ] = useState<any>(null);
 
   useEffect(() => {
-    const _token: any = localStorage.getItem("token");
-    setToken(JSON.parse(_token));
+    const _token: any = localStorage.getItem("htc-token");
+    setToken(_token);
   }, [])
   return (
     <motion.div key={router.route} initial="pageInitial" animate="pageAnimate" variants={{
@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           ) :(
             <div>
               <Header />  
-              <Component />
+              <Component {...pageProps} />
             </div>
           )
             

@@ -1,7 +1,6 @@
-import { getIdToken } from 'firebase/auth';
 import Router from 'next/router';
 import React, { useState } from 'react'
-import { auth } from '../firebase';
+import {BASE_URL} from '../utils/exportedDefinitions';
 
 const Login = () => {
 
@@ -15,15 +14,30 @@ const Login = () => {
   const loginUser = async(e: React.FormEvent) => {
     e.preventDefault();
 
-    const user: any = await auth.signInWithEmailAndPassword(email, password);
-    
-    if(user){
-      localStorage.setItem("token", JSON.stringify(await getIdToken(user.user)));
-      Router.push(`/client/${auth.currentUser?.uid}`);
-      await new Promise(resolve => setTimeout(resolve, 100))
+    const user = {
+      email: email,
+      password: password
+    }
+
+    const response = await fetch(BASE_URL + "api/users/login", 
+    {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)  
+    });
+
+    const data = await response.json();
+    setMessage(data.message);
+
+    if(data.payload.jwt_token){
+      localStorage.setItem("htc-token", data.payload.jwt_token);
+      console.log(data.payload.user);
+      Router.push(`/client/${data.payload.jwt_token}`)
+      await new Promise((resolve) => setTimeout(resolve, 100));
       Router.reload();
     }
-    if(!user) return setMessage("Incorrect Email or Password");
   }
 
   return (

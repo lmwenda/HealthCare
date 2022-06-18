@@ -1,11 +1,12 @@
 import { NextComponentType } from 'next';
 import Link from 'next/link';
 import React from 'react'
+import {BASE_URL} from '../utils/exportedDefinitions';
 
 const PricingCard: NextComponentType = () => {
  
   const sendMemberShipPayment = async() => {
-    const response = await fetch("http://localhost:3000/api/payments/membership", {
+    const response = await fetch(BASE_URL + "api/payments/membership", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -17,7 +18,7 @@ const PricingCard: NextComponentType = () => {
   }
 
   const sendPremiumShipPayment = async() => {
-    const response = await fetch("http://localhost:3000/api/payments/premiumship", {
+    const response = await fetch(BASE_URL + "api/payments/premiumship", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',

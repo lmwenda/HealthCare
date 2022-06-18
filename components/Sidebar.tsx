@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { auth } from '../firebase'
 
 const Sidebar = () => {
-
+    const token = localStorage.getItem("htc-token");
     const [active, setActive] = useState<boolean>(false);
   
     const handleClick = () => {
@@ -13,13 +13,14 @@ const Sidebar = () => {
     };
  
     
-    const logout = (e: FormEvent) => {
+    const logout = async(e: FormEvent) => {
         e.preventDefault();
 
         auth.signOut();
-        localStorage.removeItem("token");
+        localStorage.removeItem("htc-token");
 
         Router.push("/login");
+        await new Promise((resolve) => setTimeout(resolve, 100));
         Router.reload();
     }
     
@@ -58,42 +59,41 @@ const Sidebar = () => {
                     active ? '' : 'hidden'
                 }   w-full lg:inline-flex lg:flex-grow lg:w-auto bg-slate-800`}
                 >
-                <div className='lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto'>
-                    <Link href='/'>
-                    <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white items-center justify-center'>
+                  <div className='lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto'>
+                    <Link href={`/client/dashboard`}>
+                      <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white items-center justify-center'>
                         Dashboard
-                    </a>
+                      </a>
                     </Link>
-                    <Link href='/blogs'>
-                    <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white items-center justify-center'>
+                    <Link href='/client/blogs'>
+                      <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white items-center justify-center'>
                         Blogs
-                    </a>
+                      </a>
                     </Link>
 
-                    <Link href='/covid'>
-                    <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white items-center justify-center'>
-                        COVID-19
-                    </a>
+                    <Link href={`/client/sessions/${token}`}>
+                      <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white items-center justify-center'>
+                       Sessions
+                      </a>
                     </Link>
 
 
-                    <Link href='/plans'>
-                    <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white items-center justify-center'>
-                        Plans
-                    </a>
+                    <Link href='/client/subscriptions'>
+                      <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white items-center justify-center'>
+                        Subscriptions
+                      </a>
                     </Link>
 
-                    <Link href='/settings'>
-                    <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white items-center justify-center'>
+                    <Link href={`/settings/${token}`}>
+                      <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white items-center justify-center'>
                         Settings
-                    </a>
+                      </a>
                     </Link>
 
                     <a onClick={logout} 
                     className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-blue-500 items-center justify-center cursor-pointer'>
                         Logout
                     </a>
-
                 </div>
                 </motion.div>
             </nav>
@@ -107,51 +107,73 @@ const Sidebar = () => {
                             </span>
                         </div>
                         <nav className="mt-10 px-6 ">
-                            <a className="flex items-center p-2 my-6 transition-colors hover:bg-blue-400 duration-200  text-white rounded-lg " href="#">
-                                <span className="mx-4 text-lg font-normal">
-                                    Dashboard
-                                </span>
-                                <span className="flex-grow text-right">
-                                </span>
-                            </a>
-                            <a className="hover:text-bold flex items-center p-2 my-6 transition-colors hover:bg-blue-400 duration-200  text-white rounded-lg" href="#">
-                                <span className="mx-4 text-lg font-normal">
-                                    Blogs
-                                </span>
-                                <span className="flex-grow text-right">
-                                </span>
-                            </a>
-                            <a className="hover:text-bold flex items-center p-2 my-6 transition-colors hover:bg-blue-400 duration-200  text-white rounded-lg " href="#">
-                                <span className="mx-4 text-lg font-normal">
-                                    Sessions 
-                                </span>
-                            </a>
-                            <a className="hover:text-bold flex items-center p-2 my-6 transition-colors hover:bg-blue-400 duration-200  text-white rounded-lg " href="#">
-                                <span className="mx-4 text-lg font-normal">
-                                    COVID-19
-                                </span>
-                            </a>
+                          
+                        <a className="hover:text-bold hover:bg-blue-400 flex items-center p-2 my-6 transition-colors text-white duration-200  
+                            text-gray-600 dark:text-gray-400 rounded-lg " href="#">
+                            <span className="mx-4 text-lg  text-white font-normal">
+                              <Link href={`/client/dashboard`}>                           
+                                Dashboard
+                              </Link>
+                            </span>
+                            <span className="flex-grow text-right">
+                            </span>
+                          </a>
 
-                            <Link href="/client/subscriptions">
-                                <a className="hover:text-bold hover:bg-blue-400 flex items-center p-2 my-6 transition-colors text-white duration-200 rounded-lg " href="#">
-                                    <span className="mx-4 text-lg font-normal">
-                                        Subscriptions
-                                    </span>
-                                    <span className="flex-grow text-right">
-                                    </span>
-                                </a>
-                            </Link>
 
-                            <a className="hover:text-bold hover:bg-blue-400 flex items-center p-2 my-6 transition-colors text-white duration-200  text-gray-600 dark:text-gray-400 rounded-lg " href="#">
-                                <span className="mx-4 text-lg  text-white font-normal">
-                                    Settings
-                                </span>
-                                <span className="flex-grow text-right">
-                                </span>
-                            </a>
+
+                          <a className="hover:text-bold hover:bg-blue-400 flex items-center p-2 my-6 transition-colors text-white duration-200  
+                            text-gray-600 dark:text-gray-400 rounded-lg " href="#">
+                            <span className="mx-4 text-lg  text-white font-normal">
+                              <Link href={`/client/blogs`}>                           
+                                Blogs
+                              </Link>
+                            </span>
+                            <span className="flex-grow text-right">
+                            </span>
+                          </a>
+
+
+
+                          <a className="hover:text-bold hover:bg-blue-400 flex items-center p-2 my-6 transition-colors text-white duration-200  
+                            text-gray-600 dark:text-gray-400 rounded-lg " href="">
+                            <span className="mx-4 text-lg  text-white font-normal">
+                              <Link href={`/client/sessions/${token}`}>                           
+                                Workout Sessions 
+                              </Link>
+                            </span>
+                            <span className="flex-grow text-right">
+                            </span>
+                          </a>
+
+
+
+
+                          <a className="hover:text-bold hover:bg-blue-400 flex items-center p-2 my-6 transition-colors text-white duration-200  
+                            text-gray-600 dark:text-gray-400 rounded-lg " href="#">
+                            <span className="mx-4 text-lg  text-white font-normal">
+                              <Link href={`/client/subscriptions`}>                           
+                                Subscriptions
+                              </Link>
+                            </span>
+                            <span className="flex-grow text-right">
+                            </span>
+                          </a>
+
+                          <a className="hover:text-bold hover:bg-blue-400 flex items-center p-2 my-6 transition-colors text-white duration-200  
+                            text-gray-600 dark:text-gray-400 rounded-lg " href="#">
+                            <span className="mx-4 text-lg  text-white font-normal">
+                              <Link href={`/client/settings/${token}`}>                           
+                                Settings
+                              </Link>
+                            </span>
+                            <span className="flex-grow text-right">
+                            </span>
+                          </a>
                         </nav>
+
                         <div className="absolute bottom-0 my-10">
-                            <a className="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 transition-colors duration-200 flex items-center py-2 px-8" href="#">
+                          <a className="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 transition-colors duration-200 
+                            flex items-center py-2 px-8" href="#">
                                 <span onClick={logout} className="mx-4 font-medium">
                                     Logout
                                 </span>
