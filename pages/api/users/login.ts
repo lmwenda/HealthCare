@@ -15,7 +15,7 @@ const prisma = new PrismaClient();
 
 export default async function handler ( req: NextApiRequest, res: NextApiResponse<Data> ) {
   if(req.method === "POST"){
-    const { email, username, password } = req.body;
+    const { email, password } = req.body;
 
 
     // CHECK IF EMAIL IS VALID 
@@ -52,7 +52,6 @@ export default async function handler ( req: NextApiRequest, res: NextApiRespons
     // EVERTHING THING IS CORRECT AND SIGNS THE USER IN
 
     const token = jwt.sign({ _id: _user.id }, String(process.env.SECRET_TOKEN));
-    res.setHeader("htc-token", token);
     res.json(
       {
         message: "Succesfully Signed into your Account...", 
@@ -62,5 +61,6 @@ export default async function handler ( req: NextApiRequest, res: NextApiRespons
         }
       }
     );
+    res.setHeader("htc-token", token);
   }
 }

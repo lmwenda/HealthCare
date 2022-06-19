@@ -3,13 +3,15 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 type Data = {
   message: string,
-  payload: {}
+  payload: {
+    session: {}
+  }
 }
 
 const prisma = new PrismaClient();
 
-export default async function handler (req: NextApiRequest, res: NextApiResponse) {
-  if(req.method === "POST"){
+export default async function handler (req: NextApiRequest, res: NextApiResponse<Data>) {
+  if(req.method === "GET"){ 
     const { id } = req.query;
     const session = await prisma.sessions.findUnique(
       { 
@@ -23,6 +25,6 @@ export default async function handler (req: NextApiRequest, res: NextApiResponse
       }
     )
 
-    res.json({ message: "Retrieved this user's workout session's...", payload: session })
+    res.json({ message: "Retrieved this user's workout session's...", payload: { session: { session }}})
   }
 }

@@ -4,6 +4,7 @@ import Cases from '../../components/covid/cases';
 import Deaths from '../../components/covid/deaths';
 import Recovered from '../../components/covid/recovered';
 import CreateSession from '../../components/CreateSession';
+import {BASE_URL} from '../../utils/exportedDefinitions';
 
 export const getStaticProps: GetStaticProps<any> = async() => {
   const response = await fetch(
@@ -13,11 +14,22 @@ export const getStaticProps: GetStaticProps<any> = async() => {
     }
   );
 
-  const data: any = await response.json();
+  const id = "1";
+
+  const getUsersSessions = await fetch (
+    BASE_URL + `api/sessions/get/${id}`,
+    {
+      method: "GET"
+    }
+  )
+
+  const covidData: any = await response.json();
+  const userSessionsData: any = await getUsersSessions.json();
 
   return {
     props: {
-      covid: data,
+      covid: covidData,
+      sessions: userSessionsData
     }
   }
 }

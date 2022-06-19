@@ -2,6 +2,7 @@ import React from 'react'
 import Login from '../../components/Login';
 import { motion } from 'framer-motion';
 import { NextPage } from 'next';
+import withAuth from '../../components/PrivateRoute';
 
 const index: NextPage = () => {
   return (
@@ -17,4 +18,4 @@ const index: NextPage = () => {
   )
 }
 
-export default index;
+export default withAuth(index);

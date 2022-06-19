@@ -26,9 +26,13 @@ const CreateSession: NextComponentType = () => {
     const [ isPublic, setIsPublic ] = React.useState<boolean>(false);
 
     const workoutNameHandler = (e: React.ChangeEvent<HTMLInputElement>) => setWorkoutName(e.target.value);
+    
     const workoutDescriptionHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => setWorkoutDescription(e.target.value);
+
     const repsHandler = (e: React.ChangeEvent<HTMLInputElement>) => setReps(Number(e.target.value));
+
     const setsHandler = (e: React.ChangeEvent<HTMLInputElement>) => setSets(Number(e.target.value));
+
     const isPublicHandler = (e: React.ChangeEvent<HTMLInputElement>) => setIsPublic(() => {
       if(e.target.value === "on") return true
       if(e.target.value !== "on") return false
