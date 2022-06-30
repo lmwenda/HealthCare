@@ -1,5 +1,5 @@
 import paypal from "paypal-rest-sdk"; 
-import { Orders, Prisma, PrismaClient } from '@prisma/client'; 
+import { PrismaClient } from '@prisma/client'; 
 import type { NextApiRequest, NextApiResponse } from 'next'; 
 import NextCors from "nextjs-cors";
 import { BASE_URL } from "../../../../utils/exportedDefinitions";
