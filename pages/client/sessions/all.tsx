@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next';
 import { motion } from 'framer-motion';
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Session } from '../../../components/Session';
 import { BASE_URL } from '../../../utils/exportedDefinitions';
 
@@ -24,7 +24,7 @@ type ComponentSessions = {
 }
 
 export const getStaticProps: GetStaticProps = async() => {
-    const getSessions: Response =  await fetch(BASE_URL + "/api/sessions/get/all");
+    const getSessions =  await fetch(BASE_URL + "/api/sessions/get/all", { method: "GET" });
     const sessions = await getSessions.json();
 
 
@@ -35,11 +35,7 @@ export const getStaticProps: GetStaticProps = async() => {
     }
 }
 
-const All = (sessions: ComponentSessions) => {
-
-    useEffect((): void => {
-        console.log(sessions);
-    })
+const all = (sessions: ComponentSessions) => {
 
     return (
 
@@ -62,4 +58,4 @@ const All = (sessions: ComponentSessions) => {
     );
 }
 
-export default All;
+export default all;
