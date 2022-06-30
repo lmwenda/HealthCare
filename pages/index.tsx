@@ -10,9 +10,9 @@ import FadeInSection from '../components/FadeInSection';
 import introduction from "../public/people-connecting-jigsaw-pieces-head-together_53876-59847.webp";
 import introduction2 from "../public/415.jpg";
 import Blog from '../components/LandingBlogs';
-import withAuth from '../components/PrivateRoute';
+import Router from 'next/router';
 
-const Home: NextPage = () => {
+const Home: NextPage = (): JSX.Element => {
   return (
     <motion.section animate={{ x: [ -75, 0 ], opacity: [ 0, 0.5, 0.7, 0.9, 1 ] }} transition={{ ease: 'easeIn' }}>
       <div
@@ -186,4 +186,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default withAuth(Home, false);
+export default Home;

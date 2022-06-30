@@ -31,6 +31,7 @@
     "recharts": "^2.1.10",
     "three": "^0.141.0",
     "typewriter-effect": "^2.18.2",
+    "uid": "^2.0.0",
     "uniqid": "^5.4.0",
     "yarn": "^1.22.19"
   },

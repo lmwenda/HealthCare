@@ -34,8 +34,7 @@ const Login = () => {
     if(data.payload.jwt_token){
       localStorage.setItem("htc-token", data.payload.jwt_token);
       console.log(data.payload.user);
-      Router.push(`/client/${data.payload.jwt_token}`)
-      await new Promise((resolve) => setTimeout(resolve, 100));
+      Router.push(`/`)
       Router.reload();
     }
   }

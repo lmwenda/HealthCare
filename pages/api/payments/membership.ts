@@ -1,10 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import paypal from "paypal-rest-sdk";
 import url from "url";
+import NextCors from 'nextjs-cors';
 import {BASE_URL} from '../../../utils/exportedDefinitions';
 
 paypal.configure({
-    'mode': 'sandbox',
+    'mode': 'live',
     'client_id': 'AXzFDfX3tv5Fri3OPE_wrGSRMctH4ue0Dzy35AgC8u5Syid9305WQ9eQh_m9lhn9rXPLkRjwE7kpS8eA',
     'client_secret': 'EJfOp3RVkQljblmX_ww9rxL8WiAvyEl5WT9S_kdEAJ6qAlmrlG_ziHPWQcssSwFdlMIvMV9aF_DLxg20',
 })
@@ -13,7 +14,15 @@ type Data = {
   name: string
 }
 
-export default function handler( req: NextApiRequest, res: NextApiResponse<Data> ) {
+export default async function handler( req: NextApiRequest, res: NextApiResponse<Data> ) {
+    
+    await NextCors(req, res, {
+        // Options
+        methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+        origin: '*',
+        optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+    });
+
     if(req.method === "POST"){
         const isoDate = new Date();
         isoDate.setSeconds(isoDate.getSeconds() + 4);
@@ -26,7 +35,7 @@ export default function handler( req: NextApiRequest, res: NextApiResponse<Data>
                 "cancel_url": `${BASE_URL}api/payments/cancel`,
                 "initial_fail_amount_action": "continue",
                 "max_fail_attempts": "1",
-                "return_url": `${BASE_URL}payments/success`,
+                "return_url": `${BASE_URL}api/payments/success`,
                 "setup_fee": {
                     "currency": "GBP",
                     "value": "0"

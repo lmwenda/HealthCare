@@ -6,4 +6,13 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig;
+async function rewrites() {
+  return [
+    {
+      source: '/api/:path*',
+      destination: 'https://new-healthcare.vercel.app/api/:path*'
+    }
+  ]
+}
+
+module.exports = { nextConfig, rewrites };

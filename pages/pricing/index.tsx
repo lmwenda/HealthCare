@@ -1,10 +1,23 @@
 import React from 'react'
-import Login from '../../components/Login';
 import { motion } from 'framer-motion';
 import { NextPage } from 'next';
 import PricingCard from '../../components/PricingCard';
+import { Orders } from '@prisma/client';
 
-const index: NextPage = () => {
+export const getStaticProps = async() => {
+  const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+  const data = await response.json();
+
+  return{
+    props: {
+      orders: {
+
+      }
+    }
+  }
+}
+
+const index: NextPage = ({ orders }: any) => {
   return (
     <motion.div 
     animate={{ x: [  -75, 0 ], 
@@ -15,7 +28,11 @@ const index: NextPage = () => {
        <p className="text-gray-500 text-2xl pt-5">Start improving your healthcare by x100 almost instantly by purchasing these amazing deals...</p>
        
       <div className="flex mx-5 justify-center items-center space-y-10 flex-col md:flex-row md:mt-14 md:space-x-10">
-        <PricingCard />
+        {
+          orders ? <PricingCard /> : orders.map((order: Orders, key: React.Key) => ( 
+            <h1 key={key}>{order.transcationID}</h1>
+          )) 
+        }
       </div>
 
     </motion.div>

@@ -5,16 +5,16 @@ import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
 import Head from 'next/head';
 // import { PayPalScriptProvider } from "@paypal/react-paypal-js";
-import Sidebar from '../components/Sidebar';
 import { useState, useEffect } from 'react';
 
 function MyApp({ Component, pageProps, router }: AppProps) {
-  const [ token, setToken ] = useState<any>(null);
+  const [ token, setToken ] = useState<string | null>(null);
 
   useEffect(() => {
-    const _token: any = localStorage.getItem("htc-token");
+    const _token: string | null = localStorage.getItem("htc-token");
     setToken(_token);
-  }, [])
+  }, []);
+  
   return (
     <motion.div key={router.route} initial="pageInitial" animate="pageAnimate" variants={{
         pageInitial: {
@@ -28,20 +28,12 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         <Head>
           <title>Healthcare</title>
         </Head>
-        {
-          token !== null ? (
-          <div className="flex flex-col md:flex-row">
-            <Sidebar />
-            <Component {...pageProps} />
-          </div>
-          ) :(
-            <div>
-              <Header />  
-              <Component {...pageProps} />
-            </div>
-          )
-            
-        }
+
+        <div>
+          <Header />  
+          <Component {...pageProps} />
+        </div>
+
         { token !== null ? null : <Footer /> }
     </motion.div>
   );

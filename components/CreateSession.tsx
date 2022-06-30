@@ -1,7 +1,9 @@
-import React from "react";
-import jwt from "jsonwebtoken";
+import { uid } from "uid";
+import React, { ChangeEventHandler } from "react";
+import jwt, { JwtPayload } from "jsonwebtoken";
 import type { NextComponentType } from "next"; 
 import { BASE_URL } from "../utils/exportedDefinitions";
+import { Prisma, Sessions } from "@prisma/client";
 
 /* 
    model Sessions { 
@@ -23,28 +25,33 @@ const CreateSession: NextComponentType = () => {
     const [ workoutDescription, setWorkoutDescription ] = React.useState<string>("");
     const [ reps, setReps ] = React.useState<number>(0);
     const [ sets, setSets ] = React.useState<number>(0);
+    const [ userID, setUserId ] = React.useState<number | null>(null);
     const [ isPublic, setIsPublic ] = React.useState<boolean>(false);
 
-    const workoutNameHandler = (e: React.ChangeEvent<HTMLInputElement>) => setWorkoutName(e.target.value);
+    const workoutNameHandler: ChangeEventHandler<HTMLInputElement> = (e: React.ChangeEvent<HTMLInputElement>) => setWorkoutName(e.target.value);
     
-    const workoutDescriptionHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => setWorkoutDescription(e.target.value);
+    const workoutDescriptionHandler: ChangeEventHandler<HTMLTextAreaElement> = (e: React.ChangeEvent<HTMLTextAreaElement>) => setWorkoutDescription(e.target.value);
 
-    const repsHandler = (e: React.ChangeEvent<HTMLInputElement>) => setReps(Number(e.target.value));
+    const repsHandler: ChangeEventHandler<HTMLInputElement> = (e: React.ChangeEvent<HTMLInputElement>) => setReps(Number(e.target.value));
 
-    const setsHandler = (e: React.ChangeEvent<HTMLInputElement>) => setSets(Number(e.target.value));
+    const setsHandler: ChangeEventHandler<HTMLInputElement> = (e: React.ChangeEvent<HTMLInputElement>) => setSets(Number(e.target.value));
 
-    const isPublicHandler = (e: React.ChangeEvent<HTMLInputElement>) => setIsPublic(() => {
+    const isPublicHandler: ChangeEventHandler<HTMLInputElement> = (e: React.ChangeEvent<HTMLInputElement>) => setIsPublic((): boolean => {
       if(e.target.value === "on") return true
       if(e.target.value !== "on") return false
 
       return false
     });
 
-    const createSession = async(e: React.FormEvent<any>) => {
-      e.preventDefault();
-
+    React.useEffect(() => {
       const token: any = localStorage.getItem("htc-token");
-      const sessionAuthorId: any = jwt.decode(token);
+      const userId: any = jwt.decode(token);
+
+      setUserId(Number(userId._id));
+    })
+
+    const createSession = async(e: React.FormEvent<Element>): Promise<void> => {
+      e.preventDefault();
   
       const body = {
         workout: workoutName,
@@ -52,7 +59,7 @@ const CreateSession: NextComponentType = () => {
         sets,
         reps,
         isPublic,
-        sessionAuthorId
+        sessionAuthorId: userID
       }
 
       const response = await fetch(BASE_URL + "/api/sessions/create", {
@@ -128,7 +135,8 @@ const CreateSession: NextComponentType = () => {
                     </div>
                     <div className="px-4 py-6 border-t-2 border-gray-200 bg-gray-50 sm:px-10">
                         <p className="text-xs leading-5 text-gray-500">
-                            This data are display for information and can change </p>
+                          This data is for your workout session 
+                        </p>
                     </div>
         </div>
     )
