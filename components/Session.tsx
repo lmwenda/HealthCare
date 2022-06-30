@@ -1,7 +1,15 @@
-import { Sessions } from "@prisma/client";
-import Link from "next/link";
 
-export const Session = (session: Sessions) => {
+type Session = {
+  id: number;
+  workout: string;
+  workoutDescription: string;
+  sets: number;
+  reps: number;
+  isPublic: boolean;
+  sessionAuthorId: number;
+}
+
+export const Session = (session: Session) => {
   return(
     <div className="relative mx-auto max-w-8xl border border-gray-200 rounded justify-center cursor-pointer">
       <div className="grid max-w-lg gap-12 mx-auto mt-12 lg:grid-cols-3 lg:max-w-none">

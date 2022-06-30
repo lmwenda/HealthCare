@@ -1,9 +1,18 @@
-import { Sessions } from '@prisma/client';
 import { GetStaticProps } from 'next';
 import { motion } from 'framer-motion';
 import React, { useEffect } from 'react'
 import { Session } from '../../../components/Session';
 import { BASE_URL } from '../../../utils/exportedDefinitions';
+
+type Sessions = {
+    id: number;
+    workout: string;
+    workoutDescription: string;
+    sets: number;
+    reps: number;
+    isPublic: boolean;
+    sessionAuthorId: number;
+}
 
 type ComponentSessions = {
     sessions: {

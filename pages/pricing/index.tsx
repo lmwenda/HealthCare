@@ -2,7 +2,22 @@ import React from 'react'
 import { motion } from 'framer-motion';
 import { NextPage } from 'next';
 import PricingCard from '../../components/PricingCard';
-import { Orders } from '@prisma/client';
+
+type Orders = {
+  orderId: number;
+  transcationID: number;
+  state: string;
+  description: string;
+  start_date: Date;
+  email: string;
+  first_name: string;
+  last_name: string;
+  payerID: number;
+  autoRenewDate: Date;
+  currency: string;
+  amount: number;
+  renew: boolean;
+}
 
 export const getStaticProps = async() => {
   const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
