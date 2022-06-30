@@ -10,7 +10,6 @@ import FadeInSection from '../components/FadeInSection';
 import introduction from "../public/people-connecting-jigsaw-pieces-head-together_53876-59847.webp";
 import introduction2 from "../public/415.jpg";
 import Blog from '../components/LandingBlogs';
-import Router from 'next/router';
 
 const Home: NextPage = (): JSX.Element => {
   return (

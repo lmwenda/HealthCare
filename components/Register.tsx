@@ -1,6 +1,5 @@
 import Router from 'next/router';
 import React, { useState } from 'react'
-import {Prisma} from '@prisma/client';
 import {BASE_URL} from '../utils/exportedDefinitions';
 
 const Register = () => {

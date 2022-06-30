@@ -1,9 +1,7 @@
 import { motion } from 'framer-motion';
 import { NextComponentType } from 'next';
 import Link from 'next/link';
-import Router from 'next/router';
 import { MouseEventHandler, useEffect, useState } from 'react';
-import { auth } from '../firebase';
 
 export const Header: NextComponentType = () => {
   const [ active, setActive ] = useState<boolean>(false);
