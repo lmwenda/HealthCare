@@ -1,9 +1,8 @@
-import { uid } from "uid";
 import React, { ChangeEventHandler } from "react";
-import jwt, { JwtPayload } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import type { NextComponentType } from "next"; 
 import { BASE_URL } from "../utils/exportedDefinitions";
-import { Prisma, Sessions } from "@prisma/client";
+
 
 /* 
    model Sessions { 
