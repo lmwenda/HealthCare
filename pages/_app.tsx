@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { Header } from '../components/Header'
+import { Header } from '../components/Navigation/Header'
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
 import Head from 'next/head';

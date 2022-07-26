@@ -1,7 +1,7 @@
 import { NextComponentType } from 'next';
 import Link from 'next/link';
 import React from 'react'
-import {BASE_URL} from '../utils/exportedDefinitions';
+import {BASE_URL} from '../../utils/exportedDefinitions';
 
 const PricingCard: NextComponentType = () => {
  

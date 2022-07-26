@@ -5,7 +5,7 @@ import {BASE_URL} from '../../../utils/exportedDefinitions';
 import NextCors from 'nextjs-cors';
 
 paypal.configure({
-    'mode': 'live',
+    'mode': 'sandbox',
     'client_id': 'AXzFDfX3tv5Fri3OPE_wrGSRMctH4ue0Dzy35AgC8u5Syid9305WQ9eQh_m9lhn9rXPLkRjwE7kpS8eA',
     'client_secret': 'EJfOp3RVkQljblmX_ww9rxL8WiAvyEl5WT9S_kdEAJ6qAlmrlG_ziHPWQcssSwFdlMIvMV9aF_DLxg20',
 })

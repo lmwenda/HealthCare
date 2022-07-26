@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion';
 import { NextPage } from 'next';
-import PricingCard from '../../components/PricingCard';
+import PricingCard from '../../components/Cards/PricingCard';
 
 type Orders = {
   orderId: number;

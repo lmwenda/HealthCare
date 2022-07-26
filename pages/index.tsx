@@ -9,7 +9,7 @@ import Link from 'next/link';
 import FadeInSection from '../components/FadeInSection';
 import introduction from "../public/people-connecting-jigsaw-pieces-head-together_53876-59847.webp";
 import introduction2 from "../public/415.jpg";
-import Blog from '../components/LandingBlogs';
+import Blog from '../components/Cards/LandingBlogs';
 
 const Home: NextPage = (): JSX.Element => {
   return (

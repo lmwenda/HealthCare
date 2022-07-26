@@ -1,4 +1,4 @@
-export const BASE_URL = "https://new-healthcare.vercel.app/"; // ONCE PUSHING TO PRODUCTION CHANGE BASEURL TO THE PRODUCTION URL;
+export const BASE_URL = "http://localhost:3000/"; // "https://new-healthcare.vercel.app/"; // ONCE PUSHING TO PRODUCTION CHANGE BASEURL TO THE PRODUCTION URL;
 
 
 export interface ISession{
