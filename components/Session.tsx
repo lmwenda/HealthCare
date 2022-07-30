@@ -1,36 +1,29 @@
+import { TSession } from "../utils/exportedDefinitions";
 
-type Session = {
-  id: number;
-  workout: string;
-  workoutDescription: string;
-  sets: number;
-  reps: number;
-  isPublic: boolean;
-  sessionAuthorId: number;
-}
-
-export const Session = (session: Session) => {
+export const Session = (session: TSession) => {
   return(
-    <div className="relative mx-auto max-w-8xl border border-gray-200 rounded justify-center cursor-pointer">
-      <div className="grid max-w-lg gap-12 mx-auto mt-12 lg:grid-cols-3 lg:max-w-none">
-        <div className="flex flex-col mb-12 overflow-hidden cursor-pointer">
-          <div className="flex flex-col justify-between flex-1">
-            <div className="flex-1">
-                <div className="flex pt-6 space-x-1 text-sm text-gray-500">
-                  <p> { session.isPublic } </p>
-                  <span aria-hidden="true"> · </span>
-                  <span> { session.sessionAuthorId } </span>
-                </div>
-              <a href="" className="block mt-2 space-y-6">
-                <h3 className="text-2xl font-semibold leading-none tracking-tighter text-neutral-600">{session.workout}</h3>
-                <p className="text-lg font-normal text-gray-500">{session.workoutDescription}</p>
-              </a>
-            </div>
+    <div className="flex justify-center border border-gray-300 m-3 p-3 mx-auto bg-gray-300 text-white container max-w-3xl">
+      <div className="block p-6 rounded-lg text-white max-w-sm">
+        <div className="flex flex-col">
+          <div className="flex flex-row space-x-3">
+            <li className="text-gray-500">{session.sessionAuthorId}</li>
+            <h5 className="text-gray-900 text-xl leading-tight font-medium mb-2">{session.sessionAuthor.username}</h5>
           </div>
+          <h5 className="text-gray-900 text-xl leading-tight font-medium mb-2">{session.workout}</h5>
         </div>
+        <p className="text-gray-700 text-base mb-4">
+          {session.workoutDescription}
+        </p>
+
+        <p className="text-gray-700 text-base">
+          Sets: {session.sets}
+        </p>
+
+        <p className="text-gray-700 text-base">
+          Reps: {session.reps}
+        </p>
+
       </div>
     </div>
   );
 }
-
-

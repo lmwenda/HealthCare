@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           <title>Healthcare</title>
         </Head>
 
-        <div>
+        <div className="relative container mx-auto p-6 items-center">
           <Header />  
           <Component {...pageProps} />
         </div>

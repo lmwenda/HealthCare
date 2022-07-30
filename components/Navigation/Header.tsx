@@ -4,6 +4,9 @@ import Link from 'next/link';
 import { MouseEventHandler, useEffect, useState } from 'react';
 
 /*
+ * Pricing Page
+ *  - Save Order to Database
+ *  - Once Checkout show a success page
  * Settings/Dashboard Page
  *  - Workout Sessions
  *  - Orders
