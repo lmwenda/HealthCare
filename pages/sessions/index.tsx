@@ -36,9 +36,7 @@ export default (sessions: Sessions) => {
     const [ renderedSessions, setSetRenderedSessions ] = useState<Array<[]>>([]);
 
     useEffect(() => {
-        const paginate = (array: Array<[]>, pageSize: number, pageNumber: number) => {
-            return array.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
-        }
+        
     });
 
     const loadMore: Function = (): boolean => {
@@ -52,14 +50,15 @@ export default (sessions: Sessions) => {
         transition={{ ease: 'easeIn', duration: 0.5 }} 
         className="mt-5 flex flex-col justify-center text-center md:mt-20 overflow-y-hidden">
             
-            <FadeInSection>
                 {
                     sessions.sessions.map((session: TSession, key: React.Key) => (
-                        <Session key={key} {...session} />
+                        <FadeInSection>
+                            <Session key={key} {...session} />
+                        </FadeInSection>
                     ))
                 }
-                <Button onClick={loadMore}>Load more</Button>
-            </FadeInSection>
+
+            <Button onClick={loadMore}>Load more</Button>
 
         
         </motion.div>

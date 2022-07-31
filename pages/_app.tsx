@@ -34,7 +34,6 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           <Component {...pageProps} />
         </div>
 
-        { token !== null ? null : <Footer /> }
     </motion.div>
   );
 }
