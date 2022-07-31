@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
-import image from "../public/nurse-with-syringe.jpg";
-import image2 from "../public/african-american-female-doctor-operating-room-putting-drugs-through-iv-surgery-concepts.jpg";
-import image3 from "../public/female-doctor-with-presenting-hand-gesture.jpg";
+import image from "../../public/nurse-with-syringe.jpg";
+import image2 from "../../public/african-american-female-doctor-operating-room-putting-drugs-through-iv-surgery-concepts.jpg";
+import image3 from "../../public/female-doctor-with-presenting-hand-gesture.jpg";
 
 const Blog = () => {
   return (

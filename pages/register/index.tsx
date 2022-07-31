@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion';
-import Register from '../../components/Register';
+import Register from '../../components/Forms/Register';
 import { NextPage } from 'next';
 
 const index: NextPage = () => {

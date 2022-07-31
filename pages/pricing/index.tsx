@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion';
 import { NextPage } from 'next';
-import PricingCard from '../../components/PricingCard';
+import PricingCard from '../../components/Cards/PricingCard';
 
 type Orders = {
   orderId: number;
@@ -20,9 +20,6 @@ type Orders = {
 }
 
 export const getStaticProps = async() => {
-  const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-  const data = await response.json();
-
   return{
     props: {
       orders: {

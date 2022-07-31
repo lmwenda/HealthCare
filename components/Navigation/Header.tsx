@@ -3,6 +3,19 @@ import { NextComponentType } from 'next';
 import Link from 'next/link';
 import { MouseEventHandler, useEffect, useState } from 'react';
 
+/*
+ * Pricing Page
+ *  - Save Order to Database
+ *  - Once Checkout show a success page
+ * Settings/Dashboard Page
+ *  - Workout Sessions
+ *  - Orders
+ *  - Create Session
+ * Sessions
+ *  - Public Workout Sessions from other Users
+ *  - Blogs - Maybe Come Soon
+*/
+
 export const Header: NextComponentType = () => {
   const [ active, setActive ] = useState<boolean>(false);
   const [ token, setToken ] = useState<any>(null);
@@ -73,21 +86,22 @@ export const Header: NextComponentType = () => {
             </Link>
 
             {
-              token ? (
-                <>
-                  <Link href='/client/sessions/all'>
-                    <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-black items-center justify-center hover:text-blue-500'>
-                      Sessions
-                    </a>
-                  </Link>
-                  
-                  <Link href="/client/dashboard">
-                    <a className='lg:inline-flex lg:w-auto w-full text-center px-3 py-2 bg-blue-500 rounded text-white items-center justify-center'>
-                      Create Session
-                    </a>
-                  </Link>
-                </>
-              ) : (
+                token ? (
+                  <>
+                    <Link href='/sessions'>
+                      <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-blue-500 items-center justify-center'>
+                        Sessions
+                      </a>
+                    </Link>
+
+                    <Link href={`/:id/dashboard`}>
+                      <a className='lg:inline-flex lg:w-auto w-full text-center px-3 py-2 bg-blue-500 rounded text-white items-center justify-center'>
+                        Dashboard
+                      </a>
+                    </Link>
+
+                  </>
+                    ) : (
                 <>
                   <Link href='/login'>
                     <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-blue-500 items-center justify-center'>
@@ -103,7 +117,6 @@ export const Header: NextComponentType = () => {
                 </>
               )
             }
-
           </div>
         </motion.div>
       </nav>

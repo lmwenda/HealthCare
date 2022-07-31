@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { motion } from 'framer-motion';
-import Contact from '../../components/Contact';
+import Contact from '../../components/Forms/Contact';
 
 const index = () => {
   return (

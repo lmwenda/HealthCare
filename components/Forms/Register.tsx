@@ -1,6 +1,6 @@
 import Router from 'next/router';
 import React, { useState } from 'react'
-import {BASE_URL} from '../utils/exportedDefinitions';
+import {BASE_URL} from '../../utils/exportedDefinitions';
 
 const Register = () => {
 

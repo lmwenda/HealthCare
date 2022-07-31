@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { Header } from '../components/Header'
+import { Header } from '../components/Navigation/Header'
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
 import Head from 'next/head';
@@ -29,12 +29,11 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           <title>Healthcare</title>
         </Head>
 
-        <div>
+        <div className="relative container mx-auto p-6 items-center">
           <Header />  
           <Component {...pageProps} />
         </div>
 
-        { token !== null ? null : <Footer /> }
     </motion.div>
   );
 }
