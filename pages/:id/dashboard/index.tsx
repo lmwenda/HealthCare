@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 import CreateSession from "../../../components/Cards/CreateSession"
 import Button from "../../../components/Recycled/Button"
 
-export default () => {
+function Index () {
     const router = useRouter();
     const logout = () => { localStorage.removeItem("htc-token"); router.push("/login"); router.reload(); };
     return(
@@ -18,3 +18,5 @@ export default () => {
         </motion.div>
     )
 }
+
+export default Index;

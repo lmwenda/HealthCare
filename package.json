@@ -11,7 +11,7 @@
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "@paypal/react-paypal-js": "^7.8.1",
-    "@prisma/client": "^3.15.0",
+    "@prisma/client": "^4.1.1",
     "@react-three/fiber": "^8.0.19",
     "@types/firebase": "^3.2.1",
     "add": "^2.0.6",

@@ -3,7 +3,7 @@ import Button from "../Recycled/Button";
 import React, { ChangeEventHandler } from "react";
 import jwt from "jsonwebtoken";
 
-export default () => {
+function CreateSession () {
 
     const [ workoutName, setWorkoutName ] = React.useState<string>("");
     const [ workoutDescription, setWorkoutDescription ] = React.useState<string>("");
@@ -104,3 +104,5 @@ export default () => {
         </div>
     );
 }
+
+export default CreateSession;
