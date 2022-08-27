@@ -28,8 +28,7 @@ export const getStaticProps: GetStaticProps = async(): Promise<{ props: { sessio
     }
 }   
 
-function Sessions (sessions: TSession[]) {
-    const [ renderedSessions, setSetRenderedSessions ] = useState<Array<[]>>([]);
+function Sessions (sessions: { sessions: TSession[] }) {
 
     const loadMore: Function = (): boolean => {
         return false;
