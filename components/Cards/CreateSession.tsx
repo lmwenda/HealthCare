@@ -9,7 +9,7 @@ function CreateSession () {
     const [ workoutDescription, setWorkoutDescription ] = React.useState<string>("");
     const [ reps, setReps ] = React.useState<number>(0);
     const [ sets, setSets ] = React.useState<number>(0);
-    const [ userID, setUserId ] = React.useState<number | null>(null);
+    const [ userID, setUserId ] = React.useState<string | null>(null);
     const [ isPublic, setIsPublic ] = React.useState<boolean>(false);
 
     const workoutNameHandler: ChangeEventHandler<HTMLInputElement> = (e: React.ChangeEvent<HTMLInputElement>) => setWorkoutName(e.target.value);
@@ -36,7 +36,7 @@ function CreateSession () {
             sessionAuthorId: userID
         }
 
-        const response = await fetch(BASE_URL + "/api/sessions/create", {
+        const response = await fetch(BASE_URL + "api/sessions/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -54,7 +54,7 @@ function CreateSession () {
         const token: any = localStorage.getItem("htc-token");
         const userId: any = jwt.decode(token);
 
-        setUserId(Number(userId._id))
+        setUserId(userId._id)
     })
 
     return(

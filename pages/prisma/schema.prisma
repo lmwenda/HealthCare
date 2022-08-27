@@ -3,47 +3,28 @@
 
 generator client {
   provider = "prisma-client-js"
-  previewFeatures = ["referentialIntegrity"]
 }
+
 datasource db {
-  provider = "mysql"
+  provider = "mongodb"
   url = env("DATABASE_URL")
-  referentialIntegrity = "prisma"
 }
 
 model User {
-  id Int @default(autoincrement()) @id
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
   email String @unique
   username String @unique
   password String
-  sessions Sessions[]
-  orders Orders[]
+  sessions Session[]
 }
 
-model Sessions {
-  id Int @default(autoincrement()) @id
-  workout String @db.VarChar(50)
-  workoutDescription String @db.VarChar(1000)
+model Session {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  workout String 
+  workoutDescription String
   sets Int
   reps Int
   isPublic Boolean
-  sessionAuthor User @relation(fields: [sessionAuthorId], references: [id])
-  sessionAuthorId Int @unique
-}
-
-model Orders {
-  orderId Int @default(autoincrement()) @id
-  transcationID Float @default(0.00) @unique 
-  state String 
-  description String
-  start_date DateTime
-  email String
-  first_name String
-  last_name String
-  payerID Int @unique
-  payer User @relation(fields: [payerID], references: [id])
-  autoRenewDate DateTime
-  currency String
-  amount Float @default(0.00)
-  renew Boolean
+  authorId String @db.ObjectId
+  sessionAuthor User @relation(fields: [authorId], references: [id])
 }
